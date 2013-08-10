@@ -1,0 +1,23 @@
+// JavaScript Document
+$(document).ready(function() {
+  var hideWidth = '-450px'; //quantidade de px que vai ficar oculto
+	var containerRadio = $('#container_radio'); //atribui a variavel o elemento
+	var radio =  $("#radio"); //atribui a variavel o elemento que vai ser utilizado o evento
+	containerRadio.css({'margin-left': hideWidth}); //ao carregar a pagina,esconder parte do elemento.
+	
+	$("#radio").hover(function()
+	{
+		var curwidth = $(this).parent().offset(); //obter o valor de deslocamento do elemento
+		if(curwidth.left>0) //comparar o valor de margin-left
+		{
+			//movimentar margin-left  -430px esconder
+			$(this).parent().animate({marginLeft: hideWidth}, 600 ); //velocidade da transição
+			$(this).html('<p>&raquo;</p>'); //muda o texto
+		}else{
+			//movimentar margin-left  0px expandir
+			$(this).parent().animate({marginLeft: "0"}, 600 );	//velocidade da transição
+			$(this).html('<p>&laquo;</p>'); //muda o texto
+		}
+	});
+
+});
